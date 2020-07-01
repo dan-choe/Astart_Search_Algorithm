@@ -6,6 +6,22 @@ import java.util.PriorityQueue;
 /*
 // A* Search Algorithm
 
+    Reference: https://cs.stanford.edu/people/eroberts/courses/soco/projects/2003-04/intelligent-search/astar.html
+
+    1. Create an open list and a closed list that are both empty. Put the start node in the open list.
+    2. Loop this until the goal is found or the open list is empty:
+          a. Find the node with the lowest F cost in the open list and place it in the closed list.
+          b. Expand this node and for the adjacent nodes to this node:
+                i. If they are on the closed list, ignore.
+                ii. If not on the open list, add to open list, store the current node as the parent for this adjacent node, 
+                    and calculate the F,G, H costs of the adjacent node.
+                iii. If on the open list, compare the G costs of this path to the node and the old path to the node. 
+                    If the G cost of using the current node to get to the node is the lower cost, 
+                    change the parent node of the adjacent node to the current node. 
+                     Recalculate F,G,H costs of the node.
+    3. If open list is empty, fail.
+
+
 1.  Initialize the open list
 
 2.  Initialize the closed list
